@@ -1,0 +1,24 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.lgi.myworkhours.MainActivity">
+    <item
+        android:id="@+id/action_edit_records"
+        android:orderInCategory="100"
+        android:title="@string/action_edit_records"
+        app:showAsAction="never"
+        android:onClick="onEditRecordsClick" />
+    <item
+        android:id="@+id/action_settings"
+        android:orderInCategory="100"
+        android:title="@string/action_settings"
+        app:showAsAction="never"
+        android:onClick="onSettingsClick"/>
+    <item
+        android:id="@+id/action_export_records"
+        android:orderInCategory="100"
+        android:title="@string/action_export"
+        app:showAsAction="never"
+        android:onClick="onExportClick"
+        app:actionProviderClass="android.support.v7.widget.ShareActionProvider"/>
+</menu>

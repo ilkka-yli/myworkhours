@@ -18,14 +18,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <!-- <activity android:name=".MainContentActivity"></activity> -->
-        <!-- <activity android:name=".TestActivity"></activity> -->
         <activity
             android:name=".ModifyRecordActivity"
             android:label="@string/label_add_worktime"
             android:theme="@style/Theme.AppCompat.Light.Dialog" />
         <activity android:name=".EditRecordsActivity" />
-        <activity android:name=".SettingsActivity"></activity>
+        <activity android:name=".SettingsActivity" />
+
         <provider
             android:name="android.support.v4.content.FileProvider"
             android:authorities="com.example.lgi.myworkhours"
@@ -35,6 +34,7 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/file_paths" />
         </provider>
+
     </application>
 
 </manifest>

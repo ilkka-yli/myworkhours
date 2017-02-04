@@ -18,14 +18,14 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="0.7"
+            android:layout_weight="0.5"
             android:text="Pre-set +/-"
             android:textSize="18dp"/>
         <EditText android:id="@+id/input_plusminus_hours"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="0.1"
-            android:text="0.00"
+            android:layout_weight="0.2"
+            android:digits="0123456789"
             android:inputType="numberSigned"/>
         <TextView
             android:layout_width="wrap_content"
@@ -34,11 +34,11 @@
             android:layout_weight="0.05"
             android:textSize="18dp"/>
         <EditText android:id="@+id/input_plusminus_mins"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="0.1"
-            android:text="0.00"
-            android:inputType="number"/>
+            android:layout_weight="0.2"
+            android:digits="0123456789"
+            android:inputType="numberSigned"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -61,7 +61,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/button_save"
-            android:onClick="onSettingsSaveButtonClick"/>
+            android:onClick="onSettingsSaveButtonClick"
+            android:backgroundTint="@color/colorDarkGray"
+            android:textColor="#FFFFFF"
+            android:fontFamily="sans-serif-light"/>
     </LinearLayout>
 
 </LinearLayout>

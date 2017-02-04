@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.ColorStateList;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -129,9 +130,10 @@ public class EditRecordsActivity extends AppCompatActivity {
                     startActivityForResult(editRecordIntent, 1);
                 }
             });
-            editBtn.setText(getString(R.string.button_edit));
-            editBtn.setLayoutParams(new LinearLayout.LayoutParams(0,
-                    LinearLayout.LayoutParams.WRAP_CONTENT, 0.2f));
+            editBtn.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_mode_edit, 0, 0, 0);
+            editBtn.setLayoutParams(new LinearLayout.LayoutParams(88,
+                    LinearLayout.LayoutParams.WRAP_CONTENT));
+            editBtn.setBackgroundTintList(ContextCompat.getColorStateList(this, R.color.colorDarkGray));
 
             Button deleteBtn = new Button(this);
             deleteBtn.setOnClickListener(new View.OnClickListener() {
@@ -154,10 +156,11 @@ public class EditRecordsActivity extends AppCompatActivity {
                     alertDialog.show();
                 }
             });
-            deleteBtn.setText("X");
-            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(0,
-                    LinearLayout.LayoutParams.WRAP_CONTENT, 0.10f);
+            deleteBtn.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_close, 0, 0, 0);
+            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(85,
+                    LinearLayout.LayoutParams.WRAP_CONTENT);
             deleteBtn.setLayoutParams(params);
+            deleteBtn.setBackgroundTintList(ContextCompat.getColorStateList(this, R.color.colorDarkGray));
 
             LinearLayout LL = new LinearLayout(this);
             LL.setOrientation(LinearLayout.HORIZONTAL);

@@ -30,9 +30,9 @@
     <string name="alert_overlapping_record">This would overlap an existing record</string>
     <string name="title_invalid_record">Invalid record</string>
     <string name="title_invalid_time">Invalid time</string>
-    <string name="alert_invalid_time_format">Please give the time in format \'HH.mm\'.</string>
-    <string name="alert_invalid_minutes">Value in minutes field must be 0-59.</string>
-    <string name="alert_invalid_hours">Value in hours field must be 0-23.</string>
+    <string name="alert_invalid_time_format">Please give the time in format HH.mm (e.g. 15.40).</string>
+    <string name="alert_invalid_minutes">Minutes must be 0-59.</string>
+    <string name="alert_invalid_hours">Hours must be 0-23.</string>
     <string name="alert_remove_record_confirm">Do you want to remove record</string>
     <string name="button_no">No</string>
     <string name="button_yes">Yes</string>
@@ -42,4 +42,5 @@
     <string name="label_attached">attached</string>
     <string name="title_remove_record">Remove record</string>
     <string name="alert_end_time_before">End time must be before start time.</string>
+    <string name="title_activity_settings2">Settings</string>
 </resources>

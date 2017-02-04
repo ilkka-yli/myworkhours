@@ -29,13 +29,14 @@ public class ModifyRecordActivity extends AppCompatActivity {
         endDateTime = Calendar.getInstance();
 
         Bundle extras = getIntent().getExtras();
-        startDateTime.setTimeInMillis(extras.getLong("startTime", Calendar.getInstance().getTimeInMillis()));
-        endDateTime.setTimeInMillis(extras.getLong("endTime", Calendar.getInstance().getTimeInMillis()));
-        recordIndex = extras.getInt("recordIndex", -1);
+        if (extras != null) {
+            startDateTime.setTimeInMillis(extras.getLong("startTime", Calendar.getInstance().getTimeInMillis()));
+            endDateTime.setTimeInMillis(extras.getLong("endTime", Calendar.getInstance().getTimeInMillis()));
+            recordIndex = extras.getInt("recordIndex", -1);
+            setTimeFieldProperties(true, extras.getLong("endTime") > 0);
+        }
 
         setDateFieldProperties();
-        boolean fillEndTime = extras.containsKey("endTime") && extras.getLong("endTime") > 0;
-        setTimeFieldProperties(extras.containsKey("startTime"), fillEndTime);
         setTitle();
     }
 
@@ -133,14 +134,13 @@ public class ModifyRecordActivity extends AppCompatActivity {
     }
 
     private void insertHoursAndMinutes(Calendar cal, String text) {
-        int[] hoursAndMins = new int[0];
         try {
-            hoursAndMins = CalendarUtil.textToHoursAndMinutes(this, text);
+            int[] hoursAndMins = CalendarUtil.textToHoursAndMinutes(this, text);
+            cal.set(Calendar.HOUR_OF_DAY, hoursAndMins[0]);
+            cal.set(Calendar.MINUTE, hoursAndMins[1]);
         } catch (Exception e) {
             e.printStackTrace();
         }
-        cal.set(Calendar.HOUR_OF_DAY, hoursAndMins[0]);
-        cal.set(Calendar.MINUTE, hoursAndMins[1]);
     }
 
     private void modifyRecord() {

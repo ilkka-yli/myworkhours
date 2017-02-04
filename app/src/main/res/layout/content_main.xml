@@ -37,7 +37,10 @@
             <Button android:id="@+id/button_start_work"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/button_start_work" />
+                android:text="@string/button_start_work"
+                android:backgroundTint="@color/colorDarkGray"
+                android:textColor="#ffffff"
+                android:fontFamily="sans-serif-light"/>
         </LinearLayout>
         <LinearLayout
             android:layout_width="wrap_content"
@@ -60,7 +63,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/button_end_work"
-                android:enabled="false"/>
+                android:enabled="false"
+                android:backgroundTint="@color/colorDarkGray"
+                android:textColor="#ffffff"
+                android:fontFamily="sans-serif-light"/>
         </LinearLayout>
     </LinearLayout>
     <Space
@@ -71,7 +77,9 @@
         android:layout_height="wrap_content"
         android:textAlignment="center"
         android:text="@string/label_status"
-        android:layout_marginBottom="5dp"/>
+        android:layout_marginBottom="5dp"
+        android:textColor="@color/colorLightGray"
+        android:textAllCaps="true"/>
     <TextView android:id="@+id/label_status_value"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -87,7 +95,9 @@
         android:layout_height="wrap_content"
         android:textAlignment="center"
         android:text="@string/label_hours_today"
-        android:layout_marginBottom="5dp"/>
+        android:layout_marginBottom="5dp"
+        android:textColor="@color/colorLightGray"
+        android:textAllCaps="true"/>
     <TextView android:id="@+id/label_hours_today_value"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -96,13 +106,22 @@
         android:text="0h 0min"/>
     <Space
         android:layout_width="match_parent"
-        android:layout_height="60dp" />
+        android:layout_height="30dp" />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/colorHint" />
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="30dp" />
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAlignment="center"
         android:text="@string/label_all_time_plusminus"
-        android:layout_marginBottom="5dp"/>
+        android:layout_marginBottom="5dp"
+        android:textColor="@color/colorLightGray"
+        android:textAllCaps="true"/>
     <TextView android:id="@+id/label_plusminus_value"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

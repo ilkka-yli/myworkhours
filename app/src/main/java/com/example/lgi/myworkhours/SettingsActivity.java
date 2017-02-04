@@ -46,6 +46,11 @@ public class SettingsActivity extends AppCompatActivity {
         try {
             hours = Integer.parseInt(hoursInput.getText().toString());
             mins = Integer.parseInt(minsInput.getText().toString());
+            if (mins < 0 || mins > 59) {
+                DialogUtil.showAlertDialog(this, getString(R.string.title_invalid_time),
+                        getString(R.string.alert_invalid_minutes));
+                return;
+            }
             long factor = hours < 0 ? -1 : 1;
             long hoursAsMillis = Math.abs(hours) * 3600000;
             long minsAsMillis = Math.abs(mins) * 60000;

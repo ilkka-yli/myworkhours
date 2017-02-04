@@ -37,8 +37,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, ModifyRecordActivity.class);
-                intent.putExtra("startTime", Calendar.getInstance().getTimeInMillis());
-                intent.putExtra("endTime", Calendar.getInstance().getTimeInMillis());
                 startActivity(intent);
             }
         });
@@ -127,9 +125,13 @@ public class MainActivity extends AppCompatActivity {
         if (atWork) {
             statusValueLabel.setText(R.string.label_in);
             statusValueLabel.setTextColor(ContextCompat.getColor(this, R.color.colorAccent));
+            startWorkBtn.setAlpha(0.3f);
+            endWorkBtn.setAlpha(1.0f);
         } else {
             statusValueLabel.setText(R.string.label_out);
             statusValueLabel.setTextColor(ContextCompat.getColor(this, R.color.colorRed));
+            endWorkBtn.setAlpha(0.3f);
+            startWorkBtn.setAlpha(1.0f);
         }
     }
 

@@ -22,22 +22,38 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="0.5"
-            android:drawableLeft="@drawable/ic_date_range"/>
+            android:drawableLeft="@drawable/ic_action_calendar_day"
+            android:backgroundTint="@color/colorDarkGray"
+            android:textColor="#FFFFFF"
+            android:fontFamily="sans-serif-light"/>
     </LinearLayout>
     <android.support.v4.widget.Space
         android:layout_width="match_parent"
         android:layout_height="30dp" />
-    <TextView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/label_start_to_end_time"/>
+        android:weightSum="1.0">
+        <TextView
+            android:layout_weight="0.5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/label_start_time"
+            android:fontFamily="sans-serif-light"/>
+        <TextView
+            android:layout_weight="0.5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/label_end_time"
+            android:fontFamily="sans-serif-light"/>
+    </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:weightSum="1.0">
         <EditText android:id="@+id/input_start_time"
             android:layout_weight="0.4"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:inputType="numberDecimal"
             android:digits="0123456789." />
@@ -49,7 +65,7 @@
             android:textAlignment="center"/>
         <EditText android:id="@+id/input_end_time"
             android:layout_weight="0.4"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:inputType="numberDecimal"
             android:digits="0123456789." />
@@ -68,13 +84,17 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/button_cancel"
-            android:onClick="onCancelButtonClick"/>
+            android:onClick="onCancelButtonClick"
+            android:backgroundTint="@color/colorDarkGray"
+            android:textColor="#FFFFFF"
+            android:fontFamily="sans-serif-light"/>
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/button_save"
             android:onClick="onSaveButtonClick"
             android:backgroundTint="@color/colorAccent"
-            android:textColor="#fff"/>
+            android:textColor="#fff"
+            android:fontFamily="sans-serif-light"/>
     </LinearLayout>
 </LinearLayout>

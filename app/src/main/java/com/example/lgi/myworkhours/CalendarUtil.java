@@ -47,7 +47,7 @@ public class CalendarUtil {
             throw new Exception();
         }
 
-        if (mins < 0 || mins > 23) {
+        if (mins < 0 || mins > 59) {
             DialogUtil.showAlertDialog(act, act.getString(R.string.title_invalid_time),
                     act.getString(R.string.alert_invalid_minutes));
             throw new Exception();

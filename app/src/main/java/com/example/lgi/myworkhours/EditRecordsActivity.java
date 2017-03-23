@@ -12,17 +12,20 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 
 public class EditRecordsActivity extends AppCompatActivity {
 
     private Intent editRecordIntent;
     private int selectedMonth = 0;
+    private RecordListAdapter listAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -86,13 +89,34 @@ public class EditRecordsActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
 
         if (requestCode == 1) {
-            final Spinner spin = (Spinner) findViewById(R.id.spinner_months);
-            spin.setSelection(spin.getSelectedItemPosition());
+            listAdapter.notifyDataSetChanged();
+            //final Spinner spin = (Spinner) findViewById(R.id.spinner_months);
+            //spin.setSelection(spin.getSelectedItemPosition());
+
         }
     }
 
     private void listRecords(final int monthNum) {
-        LinearLayout recordsLayout = (LinearLayout) findViewById(R.id.records_layout);
+        ListView recordList = (ListView) findViewById(R.id.records_listview);
+        // recordList.setAdapter(new RecordListAdapter(this, new ArrayList<Record>()));
+
+        ArrayList<Record> filtered = new ArrayList<>();
+        for (final Record record : RecordsResource.getRecords(this)) {
+            Calendar start = RecordsResource.getStartTime(record);
+            Calendar end = RecordsResource.getEndTime(record);
+            if (monthNum > -1 && start.get(Calendar.MONTH) != monthNum) {
+                continue;
+            }
+            filtered.add(record);
+        }
+
+        if (listAdapter == null) {
+            listAdapter = new RecordListAdapter(this);
+        }
+        listAdapter.setData(filtered);
+
+        recordList.setAdapter(listAdapter);
+        /*LinearLayout recordsLayout = (LinearLayout) findViewById(R.id.records_layout);
         recordsLayout.removeAllViews();
 
         for (final Record record : RecordsResource.getRecords(this)) {
@@ -175,5 +199,6 @@ public class EditRecordsActivity extends AppCompatActivity {
             LL.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT, 1.0f));
             ((LinearLayout) findViewById(R.id.records_layout)).addView(LL);
         }
+        */
     }
 }
